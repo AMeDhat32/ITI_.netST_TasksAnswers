@@ -1,0 +1,33 @@
+﻿<table class="table">
+    <thead>
+        <tr>
+
+            <th scope="col">Name</th>
+            <th scope="col">Address</th>
+            <th scope="col">Grade</th>
+            
+        </tr>
+    </thead>
+    
+    <tbody>
+        
+            @foreach (var Student in Model)
+            {
+            <tr>
+           
+                <td>@Student.Name</td>
+                <td>@Student.Address</td>
+                <td>@Student.Grade</td>
+                <td><a href="/Student/Edit/@Student.Id" class="btn btn-outline-info">Edit</a></td>
+                <td><a href="/Student/Details/@Student.Id" class="btn btn-outline-secondary">Details</a></td>
+                <td><a href="/Student/Delete/@Student.Id" class="btn btn-outline-danger">Delete</a></td>
+            </tr>
+            }
+
+        
+        
+    </tbody>
+</table>
+</br>
+</br>
+<a class="btn btn-outline-primary" href="/Student/New">New</a>

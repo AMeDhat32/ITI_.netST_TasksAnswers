@@ -1,0 +1,24 @@
+﻿<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Manager</th>
+           
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var Department in Model)
+        {
+            <tr>
+                <td>@Department.Id</td>
+                <td>@Department.Name</td>
+                <td>@Department.Manager</td>
+                <td><a asp-action="Edit" asp-controller="Department" asp-route-id="@Department.Id" class="btn btn-warning">Edit</a></td>
+                <td><a asp-action="Details" asp-controller="Department" asp-route-id="@Department.Id" class="btn btn-info">Details</a></td>
+                <td><a asp-action="Delete" asp-controller="Department" asp-route-id="@Department.Id" class="btn btn-danger">Delete</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a asp-action="New" asp-controller="Department" class="btn btn-success">New</a>

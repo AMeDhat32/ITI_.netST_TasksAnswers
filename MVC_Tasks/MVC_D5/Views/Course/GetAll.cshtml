@@ -1,0 +1,38 @@
+﻿<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Course id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Min Degree</th>
+          
+            <th scope="col">Department</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var Course in Model)
+        {
+            <tr>
+                <td>@Course.Id</td>
+                <td>@Course.Name</td>
+                <td>@Course.MinDegree</td>
+                <td>
+                    @if (Course.Department != null)
+                    {
+                        @Course.Department.Name
+                    }
+                    else
+                    {
+                        <span>No Department yet</span>
+                    }
+                </td>
+                <td><a asp-action="Edit" asp-controller="Course" asp-route-id="@Course.Id" class="btn btn-warning">Edit</a></td>
+                <td><a asp-action="Details" asp-controller="Course" asp-route-id="@Course.Id" class="btn btn-info">Details</a></td>
+                <td><a asp-action="Delete" asp-controller="Course" asp-route-id="@Course.Id" class="btn btn-danger">Delete</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+</br>
+</br>
+<a asp-action="New" asp-controller="Course" class="btn btn-success">New</a>

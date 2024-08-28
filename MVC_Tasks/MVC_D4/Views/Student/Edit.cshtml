@@ -1,0 +1,28 @@
+﻿@model Student
+@{
+    SelectList depts = new SelectList(ViewBag.depts, "Id", "Name");
+    SelectList grades = new SelectList(new List<int> { 1, 2, 3, 4 });
+}
+<form action="/Student/EditSave/@Model?.Id" method="post">
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+
+    </div>
+    <div class="form-group">
+        <label asp-for="Address"></label>
+        <input asp-for="Address" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Grade"></label>
+        <select asp-for="Grade" asp-items="@grades" class="form-control"></select>
+    </div>
+    <div class="form-group">
+        <label asp-for="DepartmentId"></label>
+        <select class="form-control" asp-for="DepartmentId" asp-items="depts"></select>
+    </div>
+    <br />
+    <br />
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-action="GetAll" asp-controller="Student" class="btn btn-outline-secondary">Cancel</a>
+</form>

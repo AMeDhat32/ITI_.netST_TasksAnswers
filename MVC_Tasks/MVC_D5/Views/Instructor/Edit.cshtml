@@ -1,0 +1,23 @@
+﻿@model Instructor
+@{
+    SelectList depts = new SelectList(ViewBag.depts, "Id", "Name");
+}
+<form action="/Instructor/EditSave/@Model?.Id"  method="post">
+    <div class="form-group">
+        <label asp-for="Name" class="control-label"></label>
+        <input asp-for="Name" class="form-control" placeholder="Enter Name">
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Salary" class="control-label"></label>
+        <input asp-for="Salary" class="form-control" placeholder="Salary">
+        <span asp-validation-for="Salary" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="DepartmentId" class="control-label"></label>
+        <select asp-for="DepartmentId" class="form-control" asp-items="depts"></select>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-action="GetAll" asp-controller="Instructor" class="btn btn-outline-secondary">Cancel</a>
+</form>

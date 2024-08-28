@@ -1,0 +1,21 @@
+﻿@model Course
+@{
+    SelectList depts = new SelectList(ViewBag.depts, "Id", "Name");
+}
+<form action="/Course/EditSave/@Model?.Id" method="post">
+    <div class="form-group">
+        <label asp-for="Name" class="control-label"></label>
+        <input asp-for="Name" class="form-control" placeholder="Enter Name">
+    </div>
+    <div class="form-group">
+        <label asp-for="MinDegree" class="control-label"></label>
+        <input asp-for="MinDegree" class="form-control" placeholder="Salary">
+    </div>
+    <div class="form-group">
+        <label asp-for="DepartmentId" class="control-label"></label>
+        <select asp-for="DepartmentId" class="form-control" asp-items="depts"></select>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-action="GetAll" asp-controller="Course" class="btn btn-outline-secondary">Cancel</a>
+</form>

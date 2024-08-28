@@ -1,0 +1,13 @@
+﻿@model Department
+<div class="card" style="width: 18rem;">
+<img class="card-img-top" src="~/pin3.jpg" alt="Card image cap">
+<div class="card-body">
+    <h5 class="card-title">StudentName :: @Model.Name</h5>
+    <p class="card-text">StudentAddress :: @Model.Manager</p>
+
+</div>
+</div>
+<br />
+<br />
+<br />
+<a asp-action="GetAll" asp-controller="Department" class="btn btn-default">Back to List</a>
